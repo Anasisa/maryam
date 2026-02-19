@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Maryam ❤️</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background:black;
+font-family:Arial;
+overflow:hidden;
+color:white;
+text-align:center;
+}
+
+/* Background photo */
+
+.hero{
+
+position:relative;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+}
+
+.hero img{
+
+width:300px;
+
+border-radius:20px;
+
+box-shadow:0 0 40px red;
+
+animation:float 6s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%,100%{transform:translateY(0)}
+
+50%{transform:translateY(-20px)}
+
+}
+
+
+/* Typing text */
+
+.message{
+
+margin-top:30px;
+
+font-size:28px;
+
+max-width:800px;
+
+}
+
+
+/* Button */
+
+button{
+
+padding:15px 30px;
+
+font-size:20px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+margin-top:20px;
+
+}
+
+
+/* Hearts */
+
+.heart{
+
+position:absolute;
+
+color:red;
+
+animation:fall linear infinite;
+
+font-size:24px;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-100px);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(100vh);
+
+opacity:0;
+
+}
+
+/* INTRO SCREEN */
+
+#intro{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:black;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+flex-direction:column;
+
+transition:opacity 2s;
+
+}
+
+.intro-box{
+
+text-align:center;
+
+color:white;
+
+}
+
+.intro-box h1{
+
+font-size:50px;
+
+color:red;
+
+animation:pulse 1.5s infinite;
+
+}
+
+.intro-box button{
+
+padding:15px 30px;
+
+font-size:20px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+margin-top:20px;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1)}
+
+50%{transform:scale(1.1)}
+
+100%{transform:scale(1)}
+
+}
+/* INTRO SCREEN */
+
+#intro{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:black;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+flex-direction:column;
+
+transition:opacity 2s;
+
+}
+
+.intro-box{
+
+text-align:center;
+
+color:white;
+
+}
+
+.intro-box h1{
+
+font-size:50px;
+
+color:red;
+
+animation:pulse 1.5s infinite;
+
+}
+
+.intro-box button{
+
+padding:15px 30px;
+
+font-size:20px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+margin-top:20px;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1)}
+
+50%{transform:scale(1.1)}
+
+100%{transform:scale(1)}
+
+}
+
+.countdown{
+
+font-size:40px;
+
+color:red;
+
+margin-top:20px;
+
+font-weight:bold;
+
+text-shadow:0 0 10px white;
+
+}
+
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SURPRISE INTRO SCREEN -->
+
+<div id="intro">
+
+    <div class="intro-box">
+
+        <h1>❤️ HAPPY BIRTHDAY TO YOU HAMDA ❤️</h1>
+
+        <p>This is for you</p>
+
+        <button onclick="openSurprise()">Click to Open</button>
+
+    </div>
+
+</div>
+
+
+<div class="hero">
+
+<img src="maryam.jpeg">
+
+<div id="countdown" class="countdown"></div>
+
+
+<div class="message" id="text"></div>
+
+<button onclick="start()">Play Music 🎵</button>
+
+</div>
+
+
+<audio id="music" loop>
+
+<source src="P-Square-Troway-(TrendyBeatz.com).mp3">
+
+</audio>
+
+
+
+<script>
+
+
+const message = `
+
+Happy Birthday Maryam, Doctor Hamda to be in sha ALLAH ❤️
+
+On this special day of your life,
+
+I wish you Happiness, peace of mind, sound health, 
+
+Allah protections and abundant blessing,
+
+I pray that happiness and joy shall never cease from your life.
+
+Wishing you many Happy returns.
+
+`;
+
+
+
+let i=0;
+
+function type(){
+
+if(i<message.length){
+
+document.getElementById("text").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(type,50);
+
+}
+
+}
+
+
+
+function start(){
+
+document.getElementById("music").play();
+
+type();
+
+}
+
+
+
+/* Hearts */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),6000);
+
+}
+
+setInterval(createHeart,300);
+
+
+function openSurprise(){
+
+const intro = document.getElementById("intro");
+
+const music = document.getElementById("music");
+
+intro.style.opacity = "0";
+
+setTimeout(()=>{
+
+intro.style.display="none";
+
+},2000);
+
+
+// start music
+
+music.play();
+
+
+// start typing if you have typing function
+
+if(typeof type === "function"){
+
+type();
+
+}
+
+}
+// SET HER BIRTHDAY DATE HERE
+const birthday = new Date("Feb 22, 2026 00:00:00").getTime();
+
+const countdown = document.getElementById("countdown");
+
+const timer = setInterval(function(){
+
+const now = new Date().getTime();
+
+const distance = birthday - now;
+
+if(distance < 0){
+
+clearInterval(timer);
+
+countdown.innerHTML = "❤️ Once again Happy Birthday Maryam ❤️";
+
+return;
+
+}
+
+const days = Math.floor(distance / (1000*60*60*24));
+
+const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+
+const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+
+const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+countdown.innerHTML =
+days + "d " +
+hours + "h " +
+minutes + "m " +
+seconds + "s ";
+
+},1000);
+
+
+
+</script>
+
+
+</body>
+</html>
